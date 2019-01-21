@@ -1,8 +1,7 @@
 language: bash
 
-install:
-  - docker-ce
-
+services:
+  - docker
 
 script:
 - bash push-aliyun-images.sh
