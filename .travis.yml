@@ -1,6 +1,7 @@
 language: bash
 
-services: docker
+install:
+  - docker-ce
 
 
 script:
