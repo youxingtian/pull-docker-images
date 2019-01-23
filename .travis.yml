@@ -4,5 +4,5 @@ services:
 - docker
 
 script:
-- docker login -u ${ALI_USERNAME} -p ${ALI_PASSWORD}
+- docker login -u $ALI_USERNAME registry.cn-hangzhou.aliyuncs.com -p $ALI_PASSWORD
 - bash push-aliyun-images.sh
