@@ -1,7 +1,8 @@
 language: bash
 
 services:
-  - docker
+- docker
 
 script:
+- docker login -u $ALI_USERNAME -p $ALI_PASSWORD
 - bash push-aliyun-images.sh
