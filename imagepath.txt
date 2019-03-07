@@ -1,2 +1,1 @@
-gcr.io/google_containers/busybox:1.24
-quay.io/external_storage/nfs-client-provisioner:latest
+gcr.io/kubernetes-helm/tiller:v2.13.0
