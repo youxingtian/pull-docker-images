@@ -1,5 +1,5 @@
 #!/bin/bash
-#push google or coreos images to dockerhub or ali
+#push google or coreos images to dockerhub or aliyun registry
 
 set -e
 set -u
