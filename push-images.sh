@@ -1,4 +1,8 @@
 #!/bin/bash
+#push google or coreos images to dockerhub or ali
+
+set -e
+set -u
 
 for imagepath in $(cat ./imagepath.txt)
 do
