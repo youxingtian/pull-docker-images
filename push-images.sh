@@ -1,5 +1,6 @@
 #!/bin/bash
-#push google or coreos images to dockerhub or aliyun registry
+#push google or coreos images to dockerhub or aliyun registry。
+#change the registry path and username/password to yourself's。
 
 set -e
 set -u
