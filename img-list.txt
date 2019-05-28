@@ -1,1 +1,2 @@
-coreos/etcd:v3.3
+coreos/etcd:v3.3.12
+coreos/etcd:v3.3.13
