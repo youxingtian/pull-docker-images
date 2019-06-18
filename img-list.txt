@@ -1,2 +1,2 @@
 #quay.io/etcd:v3.3.13
-quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.24.1
+k8s.gcr.io/metrics-server-amd64:v0.3.3
