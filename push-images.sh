@@ -15,8 +15,8 @@ do
 	docker pull $image
 	docker tag $image $ALI_REGISTRY/$imagename
 	docker tag $image $DOCKER_HUB/$imagename
-	# push到阿里云仓库
-	docker push $ALI_REGISTRY/$imagename && \
 	# push到dockerhub
 	docker push $DOCKER_HUB/$imagename
+	# push到阿里云仓库
+	docker push $ALI_REGISTRY/$imagename
 done
