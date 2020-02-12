@@ -10,14 +10,14 @@ env:
 before_script:
   - docker version
   - env | sort
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
 
 script:
   - |
     (
       set -Eeuo pipefail
-      #login
-      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
+      set -x
       foreach($image in Get-Content .\img-list.txt) {      
         $imagename = $image.split("/")[-1]
         docker pull $image
