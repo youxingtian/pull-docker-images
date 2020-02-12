@@ -15,6 +15,7 @@ script:
   - |
     (
       set -Eeuo pipefail
+      set -x
       #login
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
