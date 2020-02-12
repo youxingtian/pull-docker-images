@@ -15,7 +15,6 @@ script:
   - |
     (
       set -Eeuo pipefail
- #    set -x
       #login
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
