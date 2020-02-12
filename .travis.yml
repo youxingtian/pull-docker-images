@@ -10,14 +10,14 @@ env:
 before_script:
   - docker version
   - env | sort
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
 
 script:
   - |
     (
       set -Eeuo pipefail
-      #login
-      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
+      set -x
        
       #pull image
       docker pull mcr.microsoft.com/windows/servercore:ltsc2019
