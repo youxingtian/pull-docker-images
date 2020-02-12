@@ -18,7 +18,7 @@ script:
     (
       set -Eeuo pipefail
       set -x
-      foreach($image in Get-Content .\img-list.txt) {      
+      foreach ($image in Get-Content .\img-list.txt) {      
         $imagename = $image.split("/")[-1]
         docker pull $image
         docker tag $image $ALI_REGISTRY/$imagename
