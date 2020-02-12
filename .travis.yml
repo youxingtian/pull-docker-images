@@ -31,3 +31,6 @@ script:
       docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/windows-servercore:ltsc2019
       docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:4.8
     )
+
+after_script:
+  - docker images
