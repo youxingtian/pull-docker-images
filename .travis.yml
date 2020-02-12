@@ -18,7 +18,7 @@ script:
       set -x
       #login
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
+      docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
       for image in $(cat img-list.txt)
       do
       	imagename=$(echo $image | awk -F '/' '{print $NF}')
