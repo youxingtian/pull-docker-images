@@ -1,8 +1,7 @@
 language: bash
 
-services: docker
-
-os: windows
+services:
+- docker
 
 script:
 - bash push-images.sh

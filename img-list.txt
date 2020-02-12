@@ -1,2 +1,1 @@
-registry.opensource.zalan.do/acid/postgres-operator:v1.2.0
-registry.opensource.zalan.do/acid/spilo-11:1.6-p1
+mcr.microsoft.com/windows/servercore:ltsc2019
