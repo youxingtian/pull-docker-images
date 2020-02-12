@@ -15,21 +15,19 @@ script:
   - |
     (
       set -Eeuo pipefail
-      set -x
       #login
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
        
       #pull image
-      docker pull mcr.microsoft.com/windows/servercore:1909
+      docker pull mcr.microsoft.com/windows/servercore:ltsc2019
       docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
       
       #tag image
-      docker tag mcr.microsoft.com/windows/servercore:1909 registry.cn-shenzhen.aliyuncs.com/aliwill/windows/servercore:1909
+      docker tag mcr.microsoft.com/windows/servercore:ltsc2019 registry.cn-shenzhen.aliyuncs.com/aliwill/windows/servercore:ltsc2019
       docker tag mcr.microsoft.com/dotnet/framework/runtime:4.8 registry.cn-shenzhen.aliyuncs.com/aliwill/framework/runtime:4.8
 
       #push image
-      docker push registry.cn-shenzhen.aliyuncs.com/aliwill/windows/servercore:1909
-      docker push registry.cn-shenzhen.aliyuncs.com/aliwill/servercore:ltsc2019
+      docker push registry.cn-shenzhen.aliyuncs.com/aliwill/windows/servercore:ltsc2019
+      docker push registry.cn-shenzhen.aliyuncs.com/aliwill/framework/runtime:4.8
     )
-    
