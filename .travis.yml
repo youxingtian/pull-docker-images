@@ -12,21 +12,21 @@ before_script:
   - env | sort
 
 script:
-- >
-  set -Eeuo pipefail
-  set -x
-  #login
-  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
-  bash -c
-  "for image in $(cat img-list.txt)
-  do
-  	imagename=$(echo $image | awk -F '/' '{print $NF}')
-  	docker pull $image
-  	docker tag $image $ALI_REGISTRY/$imagename
-  	docker tag $image $DOCKER_HUB/$imagename
-  	#push to dockerhub
-  	docker push $DOCKER_HUB/$imagename
-  	#push to aliyun
-  	docker push $ALI_REGISTRY/$imagename
-  done"
+  - |
+    (
+      set -Eeuo pipefail
+      #login
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
+      foreach($image in Get-Content .\img-list.txt) {      
+        $imagename = $image.split("/")[-1]
+        docker pull $image
+        docker tag $image $ALI_REGISTRY/$imagename
+        docker tag $image $DOCKER_HUB/$imagename
+        #push to dockerhub
+        docker push $DOCKER_HUB/$imagename
+        #push to aliyun
+        docker push $ALI_REGISTRY/$imagename
+      
+      }
+    )
