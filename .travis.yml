@@ -5,29 +5,29 @@ services: docker
 env:
  global:
    - DOCKER_HUB=willdockerhub
-   - ALI_REGISTRY=registry.cn-shenzhen.aliyuncs.com/windows-baseos
+   - ALI_REGISTRY=registry.cn-shenzhen.aliyuncs.com/aliwill
 
 before_script:
   - docker version
   - env | sort
-  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
 
 script:
   - |
     (
       set -Eeuo pipefail
-      set -x
-      $list = Get-Content ".\img-list.txt"
-      foreach ($image in $list) {      
-        $imagename = $image.split("/")[-1]
-        docker pull $image
-        docker tag $image $ALI_REGISTRY/$imagename
-        docker tag $image $DOCKER_HUB/$imagename
-        #push to dockerhub
-        docker push $DOCKER_HUB/$imagename
-        #push to aliyun
-        docker push $ALI_REGISTRY/$imagename
+      #login
+      docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
+       
+      #pull image
+      docker pull mcr.microsoft.com/windows/servercore:ltsc2019
+      docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
       
-      }
+      #tag image
+      docker tag mcr.microsoft.com/windows/servercore:ltsc2019 registry.cn-shenzhen.aliyuncs.com/windows-baseos/windows-servercore:ltsc2019
+      docker tag mcr.microsoft.com/dotnet/framework/runtime:4.8 registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:4.8
+   
+      #push image
+      docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/windows-servercore:ltsc2019
+      docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:4.8
     )
