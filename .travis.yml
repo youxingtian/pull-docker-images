@@ -1,8 +1,6 @@
 language: bash
-
-services: docker
-
 os: windows
+services: docker
 
 env:
  global:
