@@ -22,13 +22,14 @@ script:
       docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       docker login registry.cn-hangzhou.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
        
-	  #pull image
+      #pull image
       docker pull mcr.microsoft.com/windows/servercore:ltsc2019
+      
       #tag image
       docker tag mcr.microsoft.com/windows/servercore:ltsc2019 willdockerhub/servercore:ltsc2019
       docker tag mcr.microsoft.com/windows/servercore:ltsc2019 registry.cn-hangzhou.aliyuncs.com/aliwill/servercore:ltsc2019
       
-	  #push image
+      #push image
       docker push willdockerhub/servercore:ltsc2019
       docker push registry.cn-hangzhou.aliyuncs.com/aliwill/servercore:ltsc2019
     )
