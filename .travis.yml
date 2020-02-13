@@ -5,13 +5,13 @@ services: docker
 env:
  global:
    - DOCKER_HUB=willdockerhub
-   - ALI_REGISTRY=registry.cn-shenzhen.aliyuncs.com/aliwill
+   - ALI_REGISTRY=registry.cn-shenzhen.aliyuncs.com/windows-os
 
 before_script:
   - docker version
   - env | sort
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-  - docker login registry.cn-shenzhen.aliyuncs.com -u $ALI_USERNAME  -p $ALI_PASSWORD
+  - docker login -u $ALI_USERNAME  -p $ALI_PASSWORD  registry.cn-shenzhen.aliyuncs.com 
 
 script:
   - |
@@ -24,9 +24,10 @@ script:
  
       #tag image
       docker tag mcr.microsoft.com/dotnet/framework/runtime:3.5 registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:3.5
-   
+      docker tag mcr.microsoft.com/dotnet/framework/runtime:3.5 willdockerhub/dotnet-framework-runtime:3.5   
       #push image
       docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:3.5
+      docker push willdockerhub/dotnet-framework-runtime:3.5
     )
 
 after_script:
