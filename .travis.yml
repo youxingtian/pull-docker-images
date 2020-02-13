@@ -20,16 +20,13 @@ script:
       set -x
        
       #pull image
-      docker pull mcr.microsoft.com/windows/servercore:ltsc2019
-      docker pull mcr.microsoft.com/dotnet/framework/runtime:4.8
-      
+      docker pull mcr.microsoft.com/dotnet/framework/runtime:3.5
+ 
       #tag image
-      docker tag mcr.microsoft.com/windows/servercore:ltsc2019 registry.cn-shenzhen.aliyuncs.com/windows-baseos/windows-servercore:ltsc2019
-      docker tag mcr.microsoft.com/dotnet/framework/runtime:4.8 registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:4.8
+      docker tag mcr.microsoft.com/dotnet/framework/runtime:3.5 registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:3.5
    
       #push image
-      docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/windows-servercore:ltsc2019
-      docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:4.8
+      docker push registry.cn-shenzhen.aliyuncs.com/windows-baseos/dotnet-framework-runtime:3.5
     )
 
 after_script:
