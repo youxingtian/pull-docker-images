@@ -21,7 +21,6 @@ script:
     	image_name=${image##*/}
     	docker pull $image
     	docker tag $image $DOCKER_HUB/$image_name
-      echo $ALI_REGISTRY
       docker tag $image $ALI_REGISTRY/$image_name
     	
     	# push到dockerhub
