@@ -18,19 +18,19 @@ jobs:
     - stage: test
       script:
         - |
-        for image in $(cat img-list.txt)
-        do
-          image_name=${image##*/}
-          docker pull $image
-          docker tag $image $DOCKER_HUB/$image_name
-          docker push $DOCKER_HUB/$image_name
-        done
+          for image in $(cat img-list.txt)
+          do
+            image_name=${image##*/}
+            docker pull $image
+            docker tag $image $DOCKER_HUB/$image_name
+            docker push $DOCKER_HUB/$image_name
+          done
       script:
         - |
-        for image in $(cat img-list.txt)
-        do
-          image_name=${image##*/}
-          docker pull $image
-          docker tag $image $ALI_REGISTRY/$image_name
-          docker push $ALI_REGISTRY/$image_name
-        done 
+          for image in $(cat img-list.txt)
+          do
+            image_name=${image##*/}
+            docker pull $image
+            docker tag $image $ALI_REGISTRY/$image_name
+            docker push $ALI_REGISTRY/$image_name
+          done
