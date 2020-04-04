@@ -13,19 +13,24 @@ before_script:
   - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker login $ALI_REGISTRY -u $ALI_USERNAME  -p $ALI_PASSWORD
 
-script:
-  - echo "start pull and retag and push"
-  - |
-    for image in $(cat img-list.txt)
-    do
-      image_name=${image##*/}
-      docker pull $image
-      docker tag $image $DOCKER_HUB/$image_name
-      echo $ALI_REGISTRY
-      docker tag $image $ALI_REGISTRY/$image_name
-    	
-      # push到dockerhub
-      docker push $DOCKER_HUB/$image_name
-      # push到阿里云仓库
-      docker push $ALI_REGISTRY/$image_name
-    done
+jobs:
+  include:
+    - stage: test
+      script:
+	    - |
+        for image in $(cat img-list.txt)
+        do
+          image_name=${image##*/}
+          docker pull $image
+          docker tag $image $DOCKER_HUB/$image_name
+          docker push $DOCKER_HUB/$image_name
+        done
+      script:
+	    - |
+        for image in $(cat img-list.txt)
+        do
+          image_name=${image##*/}
+          docker pull $image
+          docker tag $image $ALI_REGISTRY/$image_name
+          docker push $ALI_REGISTRY/$image_name
+        done 
