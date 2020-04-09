@@ -3,3 +3,7 @@ gcr.io/kubeflow-images-public/tensorflow-1.15.2-notebook-gpu:1.0.0
 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 k8s.gcr.io/heapster-grafana-amd64:v4.4.3
 k8s.gcr.io/heapster-amd64:v1.5.2
+k8s.gcr.io/pause:3.1
+k8s.gcr.io/heapster-influxdb-amd64:v1.3.3
+gcr.io/google_containers/defaultbackend-amd64:1.4
+quay.io/kubernetes-ingress-controller/nginx-ingress-controller-amd64:0.24.1
