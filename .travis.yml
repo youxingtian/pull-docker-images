@@ -7,7 +7,7 @@ env:
   global:
     # change the registry name and username/password to yourself's.
     # - DOCKER_HUB=willdockerhub
-    - ALI_REGISTRY=registry.cn-beijing.aliyuncs.com/smartliby
+    - ALI_REGISTRY=registry.cn-hangzhou.aliyuncs.com/smartliby
 
 before_script:
   # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
