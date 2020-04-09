@@ -6,11 +6,11 @@ services:
 env:
   global:
     # change the registry name and username/password to yourself's.
-    # - DOCKER_HUB=willdockerhub
+    - DOCKER_HUB=smartliby
     - ALI_REGISTRY=registry.cn-hangzhou.aliyuncs.com/smartliby
 
 before_script:
-  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - echo "$ALI_PASSWORD" | docker login "$ALI_REGISTRY" -u "$ALI_USERNAME" --password-stdin
  
 script:
@@ -20,12 +20,12 @@ script:
     do
       image_name=${image##*/}
       docker pull $image
-      # docker tag $image $DOCKER_HUB/$image_name
+      docker tag $image $DOCKER_HUB/$image_name
       echo $ALI_REGISTRY
       docker tag $image $ALI_REGISTRY/$image_name
     	
       # push到dockerhub
-      # docker push $DOCKER_HUB/$image_name
+      docker push $DOCKER_HUB/$image_name
       # push到阿里云仓库
       docker push $ALI_REGISTRY/$image_name
     done
