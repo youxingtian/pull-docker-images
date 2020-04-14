@@ -18,7 +18,7 @@ script:
   - |
     for image in $(cat img-list.txt)
     do
-      image_name=${image##*/}
+      image_name=${${image##*/}%@*}
       docker pull $image
       docker tag $image $DOCKER_HUB/$image_name
       echo $ALI_REGISTRY
