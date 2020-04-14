@@ -15,11 +15,14 @@ nvidia/k8s-device-plugin:1.11
 metallb/controller:v0.8.2
 metallb/speaker:v0.8.2
 docker.io/istio/citadel:1.3.4
-
 jujusolutions/jujud-operator:2.7.3
 gcr.io/k8s-minikube/kicbase:v0.0.8
 gcr.io/google_containers/k8s-dns-dnsmasq-nanny-amd64:1.14.7
 gcr.io/google_containers/k8s-dns-kube-dns-amd64:1.14.7
 gcr.io/google_containers/k8s-dns-sidecar-amd64:1.14.7
 k8s.gcr.io/kubernetes-dashboard-amd64:v1.8.3
+quay.io/jetstack/cert-manager-controller:v0.11.0
+docker.io/istio/sidecar_injector:1.1.6
+docker.io/prom/prometheus:v2.3.1
+docker.io/istio/galley:1.1.6
 
