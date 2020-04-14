@@ -27,4 +27,6 @@ docker.io/prom/prometheus:v2.3.1
 docker.io/istio/galley:1.1.6
 quay.io/jetstack/cert-manager-cainjector:v0.11.0
 quay.io/jetstack/cert-manager-webhook:v0.11.0
+gcr.io/kubeflow-images-public/kubernetes-sigs/application:1.0-beta
+docker.io/kiali/kiali:v0.16
 
