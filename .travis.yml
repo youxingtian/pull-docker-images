@@ -28,5 +28,5 @@ script:
       # push到dockerhub
       docker push $DOCKER_HUB/$image_name
       # push到阿里云仓库
-      # docker push $ALI_REGISTRY/$image_name
+      docker push $ALI_REGISTRY/$image_name
     done
