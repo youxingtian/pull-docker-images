@@ -1,6 +1,6 @@
 quay.io/fluentd_elasticsearch/elasticsearch:v6.7.2
 quay.io/fluentd_elasticsearch/fluentd:v2.5.2
-docker.elastic.co/kibana/kibana-oss:6.6.1
+docker.elastic.co/kibana/kibana-oss:6.7.2
 
 k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 k8s.gcr.io/heapster-grafana-amd64:v4.4.3
